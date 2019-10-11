@@ -29,17 +29,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-      app.login(() => {
-        app._request_post('api.php?a=unlock_info',{openid:wx.getStorageSync('openid'), cityid:this.data.cityId},(success)=>{
-        console.log(success)
-        if(success.status === 200){
-            this.setData({
-            titleList:success.data
-            })
-        }
-        // console.log(this.data.lineData)
+    app._request_post('api.php?a=unlock_info',{openid:wx.getStorageSync('openid'), cityid:this.data.cityId},(success)=>{
+      console.log(success)
+      if(success.status === 200){
+        this.setData({
+          titleList:success.data
         })
-      });
+      }
+      // console.log(this.data.lineData)
+    })
   },
 
   /**

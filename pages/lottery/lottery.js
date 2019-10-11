@@ -24,93 +24,93 @@ Page({
 
     // 查询抽奖机会
     var that = this;
-    app.login(() => {
-        app._request_post('api.php?a=s_luckdraw',{
-        grade:1
-        },function(success){
-        console.log(success)
-        if(success.status == 200){
-            that.setData({
-            changes: success.data.luckydraw_num
-            })
-        // } else if (success.status == 410) {
-        //   console.log(11)
-        //   that.setData({
-        //     lotteryVal: '活动已结束'
-        //   })
-        }
+    app._request_post('api.php?a=s_luckdraw',{
+      grade:1
+    },function(success){
+      console.log(success)
+      if(success.status == 200){
+        that.setData({
+          changes: success.data.luckydraw_num
         })
-        // 查询奖品设置
-        app._request_post('api.php?a=query_prize', {}, function (success) {
-        const arr = [];
-        console.log(success)
-        if (success.status == 200) {
-            for(let i =0;i<success.data.length;i++) {
-                success.data[i].name = +success.data[i].name+'能量'
-                arr.push(success.data[i])
-            }
-
-            // getAwardsConfig
-            app.awardsConfig = {
-            chance: true,
-            awards: arr
-            }
-
-            // wx.setStorageSync('awardsConfig', JSON.stringify(awardsConfig))
-
-
-            // 绘制转盘
-            console.log(app.awardsConfig.awards)
-            awardsConfig = app.awardsConfig.awards; 
-            var awardsConfig = app.awardsConfig.awards,
-            len = awardsConfig.length,
-            rotateDeg = 360 / len / 2 + 90,
-            html = [],
-            turnNum = 1 / len  // 文字旋转 turn 值
-            that.setData({
-            btnDisabled: app.awardsConfig.chance ? '' : 'disabled'
-            })
-            var ctx = wx.createContext()
-            for (var i = 0; i < len; i++) {
-            // 保存当前状态
-            ctx.save();
-            // 开始一条新路径
-            ctx.beginPath();
-            // 位移到圆心，下面需要围绕圆心旋转
-            ctx.translate(150, 150);
-            // 从(0, 0)坐标开始定义一条新的子路径
-            ctx.moveTo(0, 0);
-            // 旋转弧度,需将角度转换为弧度,使用 degrees * Math.PI/180 公式进行计算。
-            ctx.rotate((360 / len * i - rotateDeg) * Math.PI / 180);
-            // 绘制圆弧
-            ctx.arc(0, 0, 150, 0, 2 * Math.PI / len, false);
-
-            // 颜色间隔
-            if (i % 2 == 0) {
-                ctx.setFillStyle('rgba(255,184,32,.1)');
-            } else {
-                ctx.setFillStyle('rgba(255,203,63,.1)');
-            }
-
-            // 填充扇形
-            ctx.fill();
-            // 绘制边框
-            ctx.setLineWidth(0.5);
-            ctx.setStrokeStyle('rgba(228,55,14,.1)');
-            ctx.stroke();
-
-            // 恢复前一个状态
-            ctx.restore();
-
-            // 奖项列表
-            html.push({id:awardsConfig[i].id, turn: i * turnNum + 'turn', lineTurn: i * turnNum + turnNum / 2 + 'turn', award: awardsConfig[i].name });
-            }
-            that.setData({
-            awardsList: html
-            });
+      // } else if (success.status == 410) {
+      //   console.log(11)
+      //   that.setData({
+      //     lotteryVal: '活动已结束'
+      //   })
+      }
+    })
+    // 查询奖品设置
+    app._request_post('api.php?a=query_prize', {}, function (success) {
+      const arr = [];
+      console.log(success)
+      if (success.status == 200) {
+        for(let i =0;i<success.data.length;i++) {
+            success.data[i].name = +success.data[i].name+'能量'
+            arr.push(success.data[i])
         }
+
+        // getAwardsConfig
+        app.awardsConfig = {
+          chance: true,
+          awards: arr
+        }
+
+        // wx.setStorageSync('awardsConfig', JSON.stringify(awardsConfig))
+
+
+        // 绘制转盘
+        console.log(app.awardsConfig.awards)
+        awardsConfig = app.awardsConfig.awards; 
+        var awardsConfig = app.awardsConfig.awards,
+          len = awardsConfig.length,
+          rotateDeg = 360 / len / 2 + 90,
+          html = [],
+          turnNum = 1 / len  // 文字旋转 turn 值
+        that.setData({
+          btnDisabled: app.awardsConfig.chance ? '' : 'disabled'
         })
-    });
+        var ctx = wx.createContext()
+        for (var i = 0; i < len; i++) {
+          // 保存当前状态
+          ctx.save();
+          // 开始一条新路径
+          ctx.beginPath();
+          // 位移到圆心，下面需要围绕圆心旋转
+          ctx.translate(150, 150);
+          // 从(0, 0)坐标开始定义一条新的子路径
+          ctx.moveTo(0, 0);
+          // 旋转弧度,需将角度转换为弧度,使用 degrees * Math.PI/180 公式进行计算。
+          ctx.rotate((360 / len * i - rotateDeg) * Math.PI / 180);
+          // 绘制圆弧
+          ctx.arc(0, 0, 150, 0, 2 * Math.PI / len, false);
+
+          // 颜色间隔
+          if (i % 2 == 0) {
+            ctx.setFillStyle('rgba(255,184,32,.1)');
+          } else {
+            ctx.setFillStyle('rgba(255,203,63,.1)');
+          }
+
+          // 填充扇形
+          ctx.fill();
+          // 绘制边框
+          ctx.setLineWidth(0.5);
+          ctx.setStrokeStyle('rgba(228,55,14,.1)');
+          ctx.stroke();
+
+          // 恢复前一个状态
+          ctx.restore();
+
+          // 奖项列表
+          html.push({id:awardsConfig[i].id, turn: i * turnNum + 'turn', lineTurn: i * turnNum + turnNum / 2 + 'turn', award: awardsConfig[i].name });
+        }
+        that.setData({
+          awardsList: html
+        });
+      }
+    })
+    
+
    
   },
 

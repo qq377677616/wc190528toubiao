@@ -49,40 +49,39 @@ Page({
         //     videoAd = wx.createRewardedVideoAd({adUnitId: 'adunit-e023e67cd97be3f3'})
         // }
         const self = this;
-        app.login(() => {
-            app._request_post('api.php?a=get_recharge', {},  (res) =>{
-                console.log('xxxx', res.data)
-                if (res.status == 200) {
-                    this.setData({
-                        discount: res.data
-                    })
-                }
-            })
-            // 查询充值资格
-            // app._request_post('api.php?a=is_recharge', {}, function (success) {
-            //     if (success.status == 200) {
-            //         // 查询折扣
-            //     }
-            // })
-            // 查询能量配置
-            // app._request_post('api.php?a=set_recharge', {}, function (success) {
-            //   if (success.status == 200) {
-            //     self.setData({
-            //       data: success.data
-            //     })
-            //   }
-            //   console.log(self.data.data)
-            // })
 
-            // 查询广告图
-            app._request_post('api.php?a=query_ad', {}, function (success) {
-                if (success.status == 200) {
-                    self.setData({
-                        url: success.data.img
-                    })
-                }
-            })
-        });
+        app._request_post('api.php?a=get_recharge', {},  (res) =>{
+            console.log('xxxx', res.data)
+            if (res.status == 200) {
+                this.setData({
+                    discount: res.data
+                })
+            }
+        })
+        // 查询充值资格
+        // app._request_post('api.php?a=is_recharge', {}, function (success) {
+        //     if (success.status == 200) {
+        //         // 查询折扣
+        //     }
+        // })
+        // 查询能量配置
+        // app._request_post('api.php?a=set_recharge', {}, function (success) {
+        //   if (success.status == 200) {
+        //     self.setData({
+        //       data: success.data
+        //     })
+        //   }
+        //   console.log(self.data.data)
+        // })
+
+        // 查询广告图
+        app._request_post('api.php?a=query_ad', {}, function (success) {
+            if (success.status == 200) {
+                self.setData({
+                    url: success.data.img
+                })
+            }
+        })
     },
     compute(energy) {
         let value;

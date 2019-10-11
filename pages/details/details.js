@@ -24,29 +24,27 @@ Page({
     });
     // 获取详情内容
     const self = this;
-      app.login(() => {
-          app._request_post('api.php?a=content', {
-              id: options.id
-          }, function (success) {
-              if (success.status == 200) {
-                  self.setData({
-                      title: success.data.title,
-                      time: success.data.date,
-                      content: success.data.content,
-                      link: success.data.link,
-                      collectVal: '收藏'
-                  })
-              } else if (success.status == 201) {
-                  self.setData({
-                      title: success.data.title,
-                      time: success.data.date,
-                      content: success.data.content,
-                      link: success.data.link,
-                      collectVal: '取消收藏'
-                  })
-              }
-          })
-      });
+    app._request_post('api.php?a=content',{
+      id:options.id
+    },function(success){
+      if(success.status == 200){
+        self.setData({
+          title:success.data.title,
+          time: success.data.date,
+          content: success.data.content,
+          link: success.data.link,
+          collectVal: '收藏'
+        })
+      } else if(success.status == 201) {
+        self.setData({
+          title: success.data.title,
+          time: success.data.date,
+          content: success.data.content,
+          link: success.data.link,
+          collectVal: '取消收藏'
+        })
+      }
+    })
   },
   // 收藏
   collect(){

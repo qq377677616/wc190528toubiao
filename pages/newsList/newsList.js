@@ -16,34 +16,32 @@ Page({
   onLoad: function (options) {
     console.log(options)
     const self = this;
-      app.login(() => {
-        self.setData({
-        type:options.type
-        })
-        if(options.type == 'message') {
-        app._request_post('api.php?a=list_energy', {
-        }, function (success) {
-            if(success.status == 200) {
-            for(let i =0;i<success.data.length;i++) {
-                success.data[i].days = `${success.data[i].days.substring(0, 4)}年${success.data[i].days.substring(4, 6)}月${success.data[i].days.substring(6, 8)}日`
-            }
-            self.setData({
-                list: success.data.reverse()
-            })
-            }
-        })
-        } else if (options.type == 'reword'){
-        // 获取抽奖记录
-        app._request_post('api.php?a=list_luckdraw',{
-        },function(success){
-            if(success.status == 200) {
-            self.setData({
-                list: success.data
-            })
-            }
-        })
+    self.setData({
+      type:options.type
+    })
+    if(options.type == 'message') {
+      app._request_post('api.php?a=list_energy', {
+      }, function (success) {
+        if(success.status == 200) {
+          for(let i =0;i<success.data.length;i++) {
+            success.data[i].days = `${success.data[i].days.substring(0, 4)}年${success.data[i].days.substring(4, 6)}月${success.data[i].days.substring(6, 8)}日`
+          }
+          self.setData({
+            list: success.data.reverse()
+          })
         }
-      });
+      })
+    } else if (options.type == 'reword'){
+      // 获取抽奖记录
+      app._request_post('api.php?a=list_luckdraw',{
+      },function(success){
+        if(success.status == 200) {
+          self.setData({
+            list: success.data
+          })
+        }
+      })
+    }
   },
 
   /**

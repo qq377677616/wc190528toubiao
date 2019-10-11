@@ -11,8 +11,7 @@
 		"newFeature": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
-		"nodeModules": true,
-		"checkSiteMap": false
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.4",

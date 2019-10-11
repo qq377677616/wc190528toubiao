@@ -60,16 +60,14 @@ Page({
    */
   onLoad: function (options) {
     const self = this;
-      app.login(() => {
-        app._request_post('api.php?a=total',{},function(success){
-        if(success.status == 200) {
-            self.setData({
-            info:success.num,
-            date: self.setDate()
-            })
-        }
+    app._request_post('api.php?a=total',{},function(success){
+      if(success.status == 200) {
+        self.setData({
+          info:success.num,
+          date: self.setDate()
         })
-      });
+      }
+    })
   },
   setDate(){
     const year = new Date().getFullYear();

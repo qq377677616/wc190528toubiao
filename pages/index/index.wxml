@@ -2,10 +2,9 @@
 <view class="container">
     <view class='home-banner'>
         <view class='infomation'>
-            <view class='user' wx:if="{{userHead}}">
+            <view class='user'>
                 <image src='{{userHead}}'></image>
             </view>
-            <button class='user' wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击登录</button>
             <view class='text'>
                 <view class='energy'>
                     <text>能量:</text>
@@ -123,8 +122,8 @@
 </i-modal>
 
 <view hidden="{{z_modal}}" class="z-modal" >
-    <view class="title" >{{prompt.name}}</view>
-    <text class="cantent"> {{prompt.content}}</text>
+    <view class="title" >服务提示</view>
+    <text class="cantent"> {{prompt}}</text>
     <view class="btn">
         <view style="border-right:1px #E4E7ED solid;color: #909399" bindtap="handModal" data-index="1">不再提示</view>
         <view style="color: #409EFF" bindtap="handModal">确认</view>
@@ -132,7 +131,7 @@
 </view>
 <view hidden="{{z_modal}}" style="position: fixed;top: 0;bottom: 0;left: 0;right:0;background: rgba(0,0,0,0.5);z-index: 999"></view>
 
-<i-modal  loading="true" title="提示" visible="{{ visible4 }}" actions="{{ actions4 }}" action-mode="horizontal"
+<i-modal  loading="true" title="提示" visible="{{ isTost }}" actions="{{ actions4 }}" action-mode="horizontal"
          bind:click="handleClick">
     <text style="padding:0 20rpx;display: block;height:100%">尊敬的用户，你有{{listDataLenght}}个进程，每天需要消耗{{listDataLenght *10}}点能量维持消耗，请选择以下方式进行能量补充。\n①推广新用户\n②观看广告\n(连续观看可获得双倍奖励,最多3次)\n③充值。</text>
 </i-modal>

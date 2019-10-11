@@ -137,30 +137,30 @@ Page({
                 "ageid": "0",
                 "type": "3"
             },
-            // {
-            //     "regid":"32",
-            //     "parid":"1",
-            //     "regname":"香港",
-            //     "regtype":"1",
-            //     "ageid":"0",
-            //     "type":"3"
-            // },
-            // {
-            //     "regid":"33",
-            //     "parid":"1",
-            //     "regname":"澳门",
-            //     "regtype":"1",
-            //     "ageid":"0",
-            //     "type":"3"
-            // },
-            // {
-            //     "regid":"34",
-            //     "parid":"1",
-            //     "regname":"台湾",
-            //     "regtype":"1",
-            //     "ageid":"0",
-            //     "type":"3"
-            // }
+// {
+//     "regid":"32",
+//     "parid":"1",
+//     "regname":"香港",
+//     "regtype":"1",
+//     "ageid":"0",
+//     "type":"3"
+// },
+// {
+//     "regid":"33",
+//     "parid":"1",
+//     "regname":"澳门",
+//     "regtype":"1",
+//     "ageid":"0",
+//     "type":"3"
+// },
+// {
+//     "regid":"34",
+//     "parid":"1",
+//     "regname":"台湾",
+//     "regtype":"1",
+//     "ageid":"0",
+//     "type":"3"
+// }
         ],
         isLayer: false,
         isLayer1: false,
@@ -174,10 +174,10 @@ Page({
         step: 1,
         count: 0,
     },
-    bindPickerChange({ detail }) {
+    bindPickerChange({detail}) {
 
         app._request_post('api.php?a=address_collect',
-            { openid: wx.getStorageSync('openid'), regid: this.data.noList[detail.value].regid }, (success) => {
+            {openid: wx.getStorageSync('openid'), regid: this.data.noList[detail.value].regid}, (success) => {
                 if (success.status === 200) {
                     wx.showToast({
                         title: '添加成功',
@@ -248,7 +248,7 @@ Page({
                                 areaData: data,
                                 count: num,
                             })
-                        } else {
+                        }else {
                             self.setData({
                                 areaData: [],
                                 count: 0,
@@ -297,7 +297,7 @@ Page({
                 success(res) {
                     if (res.confirm) {
                         // 调取接口
-                        app._request_post('api.php?a=course', { openid: 1 }, function (success) {
+                        app._request_post('api.php?a=course', {openid: 1}, function (success) {
                             console.log(success)
                             if (success.status == 200) {
                                 wx.showToast({

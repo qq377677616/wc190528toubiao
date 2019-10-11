@@ -28,18 +28,16 @@ Page({
     })
 
     const self = this;
-        // 获取收藏数据
-    app.login(() => {
-        app._request_post('api.php?a=collection_list',{},function(success){
-            if(success.status == 200) {
-                const data = success.data;
-                self.setData({
-                collectData: data
-                })
-                // TODO 按时间类型归类
-            }
+    // 获取收藏数据
+    app._request_post('api.php?a=collection_list',{},function(success){
+      if(success.status == 200) {
+        const data = success.data;
+        self.setData({
+          collectData: data
         })
-    });
+        // TODO 按时间类型归类
+      }
+    })
   },
 
   /**

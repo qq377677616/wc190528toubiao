@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp();
 const moment = require('../../utils/moment.min.js');
+
 //时间格式化
 function timestampToString(timestamp, type){
     moment.locale('en', {
@@ -25,7 +26,7 @@ Page({
         listDataLenght:0,
         isCheck: '签到',
         z_modal: true,
-        prompt: {},
+        prompt: '尊敬的用户，您好，欢迎使用投标小精灵。投标小精灵致力于为用户提供便捷及时的投标信息。进程功能帮你追踪多个省市实时的招投标信息。收藏功能帮你记录你关注的投标信息。进程每日会消耗能量。每日签到可获得能量。推广新用户可获得能量。进程操作请点击小精灵头像。',
         visible4: false,
         prise: 0.01,
         isLayer: false,
@@ -56,17 +57,16 @@ Page({
         ],
         actions4: [
             {
-                name: '推广用户',
+                name: '微信充值',
                 color: '#ff9900'
             },
             {
-                name: '观看广告',
+                name: '观看广告'
             },
           {
             name: '取消'
           }
         ],
-        isForTheFirstTime: false,
     },
     tostClick(){
     //    每日消耗提示
@@ -76,7 +76,6 @@ Page({
     },
     handCheck() {
         if (this.data.isCheck !== '已签到') {
-            videoAd.show()
             wx.showLoading({
                 title: '加载中',
             })
@@ -110,10 +109,7 @@ Page({
 
     },
     goCelebration(){
-        wx.navigateTo({
-            url:'/pages/celebration/index'
-        })
-        //
+
     },
     adReward(status){
         console.log('xxxx',status);
@@ -218,7 +214,7 @@ Page({
         switch (detail.index) {
             case 0:
                 wx.navigateTo({
-                    url: '/pages/taskList/taskList'
+                    url: '/pages/recharge/recharge'
                 });
                 break;
             case 1:
@@ -242,12 +238,98 @@ Page({
     onShow: function (options) {
         // console.log(wx.not)
         // 查询用户已有进程
-        if (!this.data.isForTheFirstTime){
-            this.data.isForTheFirstTime=true;
-            return;
-        }
-        this.initFn();
 
+        // console.log(wx.getStorageSync('userInfo'))
+        if (wx.getStorageSync('userInfo') !== '') {
+
+            app._request_post('api.php?a=get_unlock', {openid: wx.getStorageSync('openid')}, (success) => {
+                let list = []
+                // console.log(success.data)
+                if (success.data.process.length <= 0) {
+                    this.setData({
+                        process: false
+                    })
+                    // list = []
+                } else {
+                    list = success.data.process.split(',');
+                }
+
+                this.setData({
+                    listData: list,
+                    listDataLenght:list.length
+                })
+                // console.log()
+                // if (this.data.energy >= list.length * 10 ){
+                //
+                // }
+
+            });
+            if (wx.getStorageSync('zModal') !== 1) {
+                this.setData({
+                    z_modal: false,
+                })
+            }
+            this.setData({
+
+                userHead: wx.getStorageSync('userInfo').avatarUrl
+            });
+
+        } else {
+            wx.navigateTo({
+                url: '/pages/login/login',
+            })
+        }
+
+        const self = this;
+
+        // 查询用户等级
+        app._request_post('api.php?a=grade', {}, function (success) {
+            if (success.status === 200) {
+                app.globalData.grade = success.data
+                self.setData({
+                    grade: '../../image/grade' + success.data + '.png'
+                })
+            }
+        });
+        // 查询用户能量
+        app._request_post('api.php?a=query_energy', {}, function (success) {
+
+            if (success.status === 200) {
+
+                app.globalData.energy = success.data.energy;
+                app.globalData.pre = self.GetPercent(success.data.energy, 1000)
+                // 计算能量百分比
+
+                self.setData({
+                    energy: app.globalData.energy,
+                    pre: self.GetPercent(success.data.energy, 1000)
+                })
+            }
+        });
+
+        app._request_post('api.php?a=is_signIn', {openid: wx.getStorageSync('openid')}, (res) => {
+            // console.log(res)
+            if (res.msg !== '未签到') {
+                this.setData({
+                    isCheck: '已签到'
+                })
+            }
+        })
+        //获取进程详细
+
+        // if (this.data.listDataLenght * 10 >= this.data.energy){
+
+        // }
+        app._request_post('api.php?a=date_process', {}, (success) => {
+            if (success.status === 400) {
+                this.setData({
+                    isTost:true,
+                    visible4: true
+                })
+            }else {
+                this.getUnlockInfo();
+            }
+        })
     },
     getUnlockInfo(){
         app._request_post('api.php?a=unlock_info', {
@@ -274,10 +356,6 @@ Page({
     },
 
     onLoad(options) {
-        let _u = wx.getStorageSync('userInfo');
-        this.setData({
-            userHead: _u ? _u.avatarUrl: '',
-        });
         this.ad();
         videoAd.onLoad(() => {
             console.log('激励视频 广告加载成功')
@@ -309,103 +387,17 @@ Page({
 
         //查询是否能量充足
 
-        app.login(()=>{
-            if (JSON.stringify(options) != '{}') {
-                // 通过分享链接进入
-                app._request_post('api.php?a=get_extend', {
-                    openid: wx.getStorageSync('openid'),
-                    id: options.id
-                }, function (success) {
 
-                })
-            }
-            this.initFn();
-        })
 
-    },
-    initFn(){
-        let that=this;
-        app._request_post('api.php?a=get_unlock', { openid: wx.getStorageSync('openid') }, (success) => {
-            let list = []
-            // console.log(success.data)
-            if (success.data.process.length <= 0) {
-                that.setData({
-                    process: false
-                })
-                // list = []
-            } else {
-                list = success.data.process.split(',');
-            }
+        if (JSON.stringify(options) != '{}') {
+            // 通过分享链接进入
+            app._request_post('api.php?a=get_extend', {
+                openid: wx.getStorageSync('openid'),
+                id: options.id
+            }, function (success) {
 
-            that.setData({
-                listData: list,
-                listDataLenght: list.length
             })
-            // console.log()
-            // if (this.data.energy >= list.length * 10 ){
-            //
-            // }
-
-        });
-        if (wx.getStorageSync('zModal') !== 1) {
-            console.log(1)
-            app._request_get('api.php?a=get_server_msg', {}, (res) => {
-                console.log(res.data)
-                that.setData({
-                    z_modal: res.data.status == '0',
-                    prompt: res.data
-                })
-            })
-
-        } else {
-
         }
-        // 查询用户等级
-        app._request_post('api.php?a=grade', {}, function (success) {
-            if (success.status === 200) {
-                app.globalData.grade = success.data
-                that.setData({
-                    grade: '../../image/grade' + success.data + '.png'
-                })
-            }
-        });
-        // 查询用户能量
-        app._request_post('api.php?a=query_energy', {}, function (success) {
-
-            if (success.status === 200) {
-
-                app.globalData.energy = success.data.energy;
-                app.globalData.pre = that.GetPercent(success.data.energy, 1000)
-                // 计算能量百分比
-
-                that.setData({
-                    energy: app.globalData.energy,
-                    pre: that.GetPercent(success.data.energy, 1000)
-                })
-            }
-        });
-        app._request_post('api.php?a=is_signIn', { openid: wx.getStorageSync('openid') }, (res) => {
-            // console.log(res)
-            if (res.msg !== '未签到') {
-                that.setData({
-                    isCheck: '已签到'
-                })
-            }
-        })
-        //获取进程详细
-        // if (this.data.listDataLenght * 10 >= this.data.energy){
-
-        // }
-        app._request_post('api.php?a=date_process', {}, (success) => {
-            if (success.status === 400) {
-                that.setData({
-                    isTost: true,
-                    visible4: true
-                })
-            } else {
-                that.getUnlockInfo();
-            }
-        })
     },
     GetPercent(num, total) {
 
@@ -480,22 +472,12 @@ Page({
         })
     },
     getUserInfo: function (e) {
-        let obj = e.detail.userInfo;
-        if (obj){
-            app._request_post('ask.php/getInfo', {
-                nickname: obj.nickName,
-                avatarurl: obj.avatarUrl,
-                openid: app.globalData.userInfo,
-                sex: obj.gender
-            }, (res) => {
-                console.log(obj)
-                app.globalData.userInfo = obj;
-                wx.setStorageSync('userInfo', obj);
-                this.setData({
-                    userHead: obj.avatarUrl
-                });
-            })
-        }
+
+        app.globalData.userInfo = e.detail.userInfo
+        this.setData({
+            userInfo: e.detail.userInfo,
+            hasUserInfo: true
+        })
     },
     // 发起支付
     pay: function () {

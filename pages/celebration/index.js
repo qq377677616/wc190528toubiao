@@ -20,9 +20,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-      app.login(() => {
-        this.getActivityList();
-      });
+    this.getActivityList();
   },
   getActivityList(){
     const openid = wx.getStorageSync('openid')

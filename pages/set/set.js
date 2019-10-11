@@ -31,7 +31,7 @@ Page({
     onLoad: function (options) {
 
         this.setData({
-            options:options,
+            options:options, 
             nstd: options.id !== "undefined" && options.id !== "" ? true : false,
             courseIndex:options.index
         })
@@ -169,12 +169,11 @@ Page({
 
     setSure(){
         const {multiArray,multiIndex,infoSources,infoIndex,nstd,courseIndex} = this.data
-        const {energyConfig} = app.globalData
         function toast(type,stu = null) {
             switch (type) {
                 case 0:
                     wx.showToast({
-                        title:stu?`添加`:`扣除${energyConfig[4].energy}点能量`,
+                        title:`${stu?'添加':'修改'}成功`,
                         duration:1500
                     })
                     break;

@@ -37,20 +37,13 @@
 }
 
 .home-banner .user {
-    margin: 0 0 0 30rpx;
   height: 100rpx;
   width: 100rpx;
   border-radius: 50%;
   border: 4rpx solid #8f96fe;
   z-index: 100;
-}
-.home-banner button.user{
-    padding: 10rpx 0;
-    margin: 0 0 0 30rpx;
-    color: #4e4af9;
-    font-size: 30rpx;
-    line-height: 1.2;
-    letter-spacing: 1px;
+  border-radius: 50%;
+  margin-left: 30rpx;
 }
 
 .home-banner .user image{
@@ -71,13 +64,6 @@
   margin-left: 26rpx;
   flex-direction: column;
 }
-
-/* .infomation .user button{
-    line-height: 1.2;
-    padding: 15rpx 40rpx;
-    border: 1rpx solid #4e4af9;
-    border-radius: 10rpx;
-} */
 
 .energy {
   display: flex;
