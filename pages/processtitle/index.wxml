@@ -1,0 +1,6 @@
+<!--pages/processtitle/index.wxml-->
+<view class="nax">招标列表:</view>
+<view class="icard" wx:for="{{titleList}}" bindtap="get_articleDetile" data-id="{{item.id}}">
+    <view class="title">{{item.title}}</view>
+</view>
+<i-load-more tip="已经到最底部啦" loading="{{ false }}" />

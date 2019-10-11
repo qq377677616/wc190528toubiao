@@ -1,0 +1,31 @@
+<view class="task">
+  <ad unit-id="adunit-935e8d937d846f48"></ad>
+  <image src='../../image/rechange-bk.png' class='bk'></image>
+  <!-- <view class='task1'>
+    <view class='title'>
+      任务1-观看视频获取能量    
+    </view>
+    <view class='sub'>
+      获取的能量为1点，每日任务为10个视频为一组。完成每日任务可获得普通抽奖1次。每日任务可循环完成，累计观看视频为100次的倍数，奖励中级抽奖1次。累计观看视频为1000次的倍数，奖励高级抽奖1次。
+    </view>
+    <view class='times'>
+      观看次数：1/100
+    </view>
+    <view class='btn'>
+      领取奖励
+    </view>
+  </view> -->
+  <view class='task2'>
+    <view class='title'>
+      用户推广
+    </view>
+    <view class='sub'>
+      每推广1个用户成功注册，奖励推广用户能量值（20）
+    </view>
+    <button class='btn' open-type="share" >
+      推广新用户
+    </button>
+  </view>
+  <!-- <image src='../../image/cj.png' class='cj' bindtap='goZp'></image> -->
+  <view class='tag'>公测版</view>
+</view>

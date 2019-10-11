@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a0bce31a-8bd0-4397-9a41-f41957ceabaa" name="默认更改列表" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pages/login/login.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/modify/modify.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/newsList/newsList.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/stepInfo/stepInfo.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/index/index.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/set/set.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/set/set.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/index/index.wxss" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/task/task.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/stepInfo/stepInfo.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/task/task.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/celebration/index.wxml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/index/index.js" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectId" id="1PBC74LEjJKqPM6OQGKfEfYa0ev" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0bce31a-8bd0-4397-9a41-f41957ceabaa" name="默认更改列表" comment="" />
+      <created>1554796968087</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554796968087</updated>
+      <workItem from="1554796970301" duration="631000" />
+      <workItem from="1554797614799" duration="1868000" />
+      <workItem from="1554859278410" duration="33440000" />
+      <workItem from="1554910743164" duration="508000" />
+      <workItem from="1554951288941" duration="1269000" />
+      <workItem from="1554954120987" duration="2376000" />
+      <workItem from="1555470269780" duration="18000" />
+      <workItem from="1555470304333" duration="2128000" />
+      <workItem from="1555478657532" duration="1840000" />
+      <workItem from="1555492924483" duration="525000" />
+      <workItem from="1555987228331" duration="8171000" />
+      <workItem from="1556073091397" duration="1489000" />
+      <workItem from="1556098949368" duration="425000" />
+      <workItem from="1556177830814" duration="483000" />
+      <workItem from="1556240714676" duration="1078000" />
+      <workItem from="1556267166315" duration="2205000" />
+      <workItem from="1556329789076" duration="2604000" />
+      <workItem from="1556350808264" duration="322000" />
+      <workItem from="1556502323062" duration="104000" />
+      <workItem from="1556520035435" duration="3085000" />
+      <workItem from="1556523554643" duration="472000" />
+      <workItem from="1556524099311" duration="1990000" />
+      <workItem from="1556588330876" duration="396000" />
+      <workItem from="1556589272667" duration="1165000" />
+      <workItem from="1557021683188" duration="1053000" />
+      <workItem from="1557134288929" duration="205000" />
+      <workItem from="1557135557515" duration="4205000" />
+      <workItem from="1557141545135" duration="1476000" />
+      <workItem from="1557194385953" duration="894000" />
+      <workItem from="1557208695764" duration="407000" />
+      <workItem from="1557465639512" duration="1941000" />
+      <workItem from="1557713530147" duration="2520000" />
+      <workItem from="1557726563619" duration="1065000" />
+      <workItem from="1557812473967" duration="14871000" />
+      <workItem from="1557884069352" duration="660000" />
+      <workItem from="1557898031387" duration="119000" />
+      <workItem from="1558059489895" duration="410000" />
+      <workItem from="1560843774102" duration="640000" />
+      <workItem from="1560922734586" duration="9000" />
+      <workItem from="1560922788639" duration="14240000" />
+      <workItem from="1560948657272" duration="6550000" />
+      <workItem from="1560995049349" duration="467000" />
+      <workItem from="1561017230676" duration="349000" />
+      <workItem from="1561020267216" duration="127000" />
+      <workItem from="1561081557148" duration="2618000" />
+      <workItem from="1561095266439" duration="2613000" />
+      <workItem from="1561339951028" duration="1890000" />
+      <workItem from="1561369669304" duration="569000" />
+      <workItem from="1561370868174" duration="10841000" />
+      <workItem from="1565337937174" duration="66000" />
+      <workItem from="1565338006119" duration="4439000" />
+      <workItem from="1565832876071" duration="5658000" />
+      <workItem from="1565920052931" duration="1816000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

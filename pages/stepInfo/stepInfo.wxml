@@ -1,0 +1,23 @@
+
+<!--pages/newsList/newsList.wxml-->
+<view class='newsList'>
+  <view class='line' wx:for="{{info}}" wx:key="{{item.course}}">
+    <view class='time'>
+      <image src='../../image/message-time.png'></image>
+      <text>{{date}}</text>
+    </view>
+    <view style="position: absolute;right: 10rpx;font-size: 28rpx;color: #f94146" bindtap="handDelete" data-index="{{index}}" data-id="{{item.course}}">删除</view>
+    <view class='text'>
+      <view class='obtain'>进程：{{item.course}}</view>
+      <view class='obtain'>地区：{{item.address}}</view>
+      <!-- <view class='obtain'>行业/板块：{{item.category}}</view> -->
+      <view style="font-size: 32rpx">信息数：{{item.num}}条</view>
+    </view>
+  </view>
+  <view class='tag'>公测版</view>
+</view>
+
+<i-modal  loading="true" title="提示" visible="{{ i_modal }}" actions="{{ actions3 }}" action-mode="horizontal"
+          bind:click="handleClick">
+  <text style="padding: 20rpx;display: block">确认删除吗？删除后将返回50点能量</text>
+</i-modal>

@@ -1,0 +1,19 @@
+<!--活动-->
+<view>
+    <image src="../../image/rechange-bk.png" class="bg"/>
+
+    <view class="activity"
+          wx:for="{{dataList}}"
+          wx:key="{{item.id}}"
+          bindtap="handReceive"
+          data-index="{{index}}"
+          data-id="{{item.id}}"
+          data-status="{{item.status}}">
+        <view>{{item.activity_name}}</view>
+        <view>活动内容: {{item.activity_introduce}}</view>
+        <view>
+            <text>时间: {{item.date_start_time}} - {{item.date_end_time}}</text>
+            <view class="activity-btn {{item.status?'is-std':''}}">{{item.status?'已领取':'领 取'}}</view>
+        </view>
+    </view>
+</view>

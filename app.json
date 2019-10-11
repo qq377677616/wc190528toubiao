@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/collection/collection",
+    "pages/newsList/newsList",
+    "pages/task/task",
+    "pages/modify/modify",
+    "pages/taskList/taskList",
+    "pages/set/set",
+    "pages/lottery/lottery",
+    "pages/recharge/recharge",
+    "pages/details/details",
+    "pages/stepInfo/stepInfo",
+    "pages/login/login",
+    "pages/processtitle/index",
+    "pages/celebration/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4e4af9",
+    "navigationBarTitleText": "投标精灵",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置将用于首个进程选择使用"
+    }
+  }
+}

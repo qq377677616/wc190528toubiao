@@ -1,0 +1,42 @@
+<!--pages/recharge/recharge.wxml-->
+<wxs src="./recharge.wxs" module="rh"></wxs>
+<view class='rechange'>
+  <image class='bk' src='../../image/rechange-bk.png'></image>
+  <view class='banner'>
+    <image src='{{url}}'></image>
+  </view>
+  <view class='title'>充值能量</view>
+  <view class="section">
+    <view class='block' wx:for="{{discount}}" bindtap='rechange' wx:key="{{item}}" data-price="{{data[index]}}" data-discount="{{rh.rounding(data[index].energy / item.energy * item.money)}}">
+      <view class="pg ">
+        <view class='type'>{{data[index].energy}}能量</view>
+        <view class='price'>原价：{{rh.rounding(data[index].energy / item.energy * item.money)}}元</view>
+        <view class='price'>现价：{{rh.rounding(data[index].energy / item.energy * item.money * item.discount)}}元</view>
+      </view>
+    </view>
+  </view>
+  <view class='tag'>公测版</view>
+</view>
+
+<i-modal
+  title="充值"
+  visible="{{ visible3 }}"
+  actions="{{ actions3 }}"
+  bind:click="handleClick3"
+  data-price="{{value1 * activeData.energy}}"
+  >
+    <view>充值单位：<text class="energy">{{activeData.energy}}</text> 能量</view>
+
+    <view style="padding: 26rpx">
+        <view style="padding-bottom:6rpx">充值数量:</view>
+        <i-input-number value="{{ value1 }}" min="1" max="100" bindchange="handleChange1" />
+    </view>
+    <view>
+      充值能量：<text class="energy">{{value1 * activeData.energy}}</text> ,
+      原价：{{rh.rounding(activeDiscount * value1)}} 元
+    </view>
+  金额：<text class="money">{{zmoney}}</text> 元
+  <view>
+
+  </view>
+</i-modal>

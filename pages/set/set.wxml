@@ -1,0 +1,55 @@
+<!--index.wxml-->
+
+<view class="content set">
+    <view class='home-banner'>
+        <view class='title'>{{nstd?'修改':'设定'}}</view>
+        <image src='../../image/list-bk.png' class='bk'></image>
+    </view>
+    <view class='set-content'>
+        <view class='picker'>
+            <text>请选择地区</text>
+            <picker
+                    bindchange="bindMultiPickerChange"
+                    value="{{multiIndex}}"
+                    range="{{multiArray}}"
+                    class='province-picker industry-picker'
+                    range-key="regname">
+                {{multiArray[multiIndex].regname}}
+            </picker>
+        </view>
+        <view class='picker'>
+<!--            <text>请选择信息来源</text>-->
+            <text>请选择信息来源</text>
+            <picker
+                    bindchange="industryChange"
+                    value="{{infoIndex}}"
+                    range="{{infoSources}}"
+                    range-key="regname"
+                    data-index="{{infoSources}}"
+                    class='province-picker industry-picker'>
+                {{infoSources[infoIndex].regname}}
+            </picker>
+        </view>
+        <view
+        class='set-btn'
+        bindtap='setSure'
+        data-index="{{nstd?'确认修改':'确认设定'}}">{{nstd?'确认修改':'确认设定'}}</view>
+    </view>
+    <view class='list-layer' wx:if="{{isLayer}}">
+        <image src='../../image/list-layer.png' class='bk'></image>
+        <image src='../../image/grade-layer-close.png' class='close' bindtap='closeLayer'></image>
+        <!-- <image src='../../image/list-share.png' ></image> -->
+        <button open-type="share" class='share'>分享好友</button>
+        <image src='../../image/list-task.png' class='task' bindtap='goTask'></image>
+    </view>
+    <view class='set-layer' wx:if="{{isSetLayer}}">
+        <textarea bindinput="bindTextAreaBlur" placeholder="请输入想要设定的网站"/>
+        <view class='set-layer-btn' bindtap='setUrl'>提交</view>
+        <view class='set-layer-btn-cancle' bindtap='setCancle'>取消</view>
+    </view>
+    <view class='tag'>公测版</view>
+</view>
+
+<i-modal visible="{{ visible2 }}" bind:ok="handleClose2" bind:cancel="handleClose2">
+    <view>市级需要 100 点能量激活</view>
+</i-modal>

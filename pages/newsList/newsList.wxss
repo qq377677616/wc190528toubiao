@@ -1,0 +1,35 @@
+/* pages/newsList/newsList.wxss */
+.newsList{
+  height: 100%;
+  padding: 0 30rpx;
+}
+.newsList .line{
+  padding: 10px 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.newsList .time{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #acacac;
+  margin-bottom: 10rpx;
+}
+
+.newsList .time image{
+  height: 20rpx;
+  width: 20rpx;
+  margin-right: 30rpx;
+}
+
+.newsList .line .text {
+  margin-left: 48rpx;
+  font-size: 30rpx;
+  display: flex;
+  width: 100%;
+}
+
+.newsList .line .text .obtain{
+  /*padding-right: 80rpx;*/
+  width: 45%;
+
+}

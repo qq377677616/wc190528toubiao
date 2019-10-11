@@ -1,0 +1,126 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"nodeModules": true,
+		"checkSiteMap": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.4",
+	"appid": "wxca41b21afb51c223",
+	"projectname": "%E6%8A%95%E6%A0%87%E7%B2%BE%E7%81%B5",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": -1,
+					"name": "收藏列表",
+					"pathName": "pages/collection/collection",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息列表",
+					"pathName": "pages/newsList/newsList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "充值",
+					"pathName": "pages/recharge/recharge",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投标列表",
+					"pathName": "pages/task/task",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "设定",
+					"pathName": "pages/set/set",
+					"query": "id=2&url=collection_a",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改",
+					"pathName": "pages/modify/modify",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "任务列表",
+					"pathName": "pages/taskList/taskList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抽奖",
+					"pathName": "pages/lottery/lottery",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "投标详情",
+					"pathName": "pages/details/details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登陆页",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "pages/celebration/index",
+					"scene": null
+				}
+			]
+		}
+	}
+}

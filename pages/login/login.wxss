@@ -1,0 +1,50 @@
+/* pages/login/login.wxss */
+.loadind{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+ image{
+    height:100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .dq{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .sprite{
+    width: 280rpx;
+    height: 279rpx;
+    position: absolute;
+    z-index: 5;
+    left: calc(50% - 140rpx);
+    top:30%;
+  }
+
+    /*.sprite.active{*/
+    /*  top: 365rpx;*/
+    /*  transition: all 2s cubic-bezier(0.745, 0, 0.920, 0.615);*/
+    /*}*/
+    .userinfo{
+      
+    }
+    .userinfo button{
+      background-color: #4e4af9;
+      color: #fff;
+      width: 50%;
+      position: absolute;
+      top: calc(50% - 100rpx);
+      left: 25%;
+    }
+
+    .bk{
+      position: fixed;
+      top: 0;      
+      left: 0;
+    }

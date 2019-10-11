@@ -1,0 +1,34 @@
+<ad unit-id="adunit-935e8d937d846f48"></ad>
+<view class="collection">
+<view class='edite' bindtap='edit'>
+  {{editVal}}
+</view>
+<view class='today' wx:for="{{collectData}}" wx:for-index="key"  wx:for-item="value">
+  <view class='head' wx:if="{{key == date}}">
+    <view class='title'>
+    今日收藏
+    </view>
+  </view>
+  <view class='ohead' wx:if="{{key !== date}}">
+    <image src='../../image/bell.png' class='bell'></image>
+    <view class='time'>{{key}}</view>
+  </view>
+    <view class='line' wx:for="{{value}}" >
+    <view class="checkBox {{item.isChecked == '1'?'active':''}}" wx:if="{{isEdit}}" bindtap='checkLine' data-id="{{item.id}}" data-key="{{key}}"  data-station="{{item.isChecked}}"></view>
+      <view class='text' bindtap='goDetails' data-id="{{item.id}}">
+        <view class='line-title'>{{item.title}}</view>
+        <view class='sub'>工程建设</view>
+      </view>
+      <view class='arrow'>
+        <image src='../../image/arrow.png'></image>
+      </view>
+    </view>
+</view>
+<view class='editor-layer' wx:if="{{isEdit}}">
+  <view class="checkBox {{isAll?'active':''}}" bindtap='checkAll'>
+  </view>
+  <view bindtap='checkAll'>全选</view>
+  <view class='del-btn' bindtap='deleteCollection'>删除</view>
+</view>
+<view class='tag'>公测版</view>
+</view>

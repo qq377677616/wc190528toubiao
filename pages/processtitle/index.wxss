@@ -1,0 +1,19 @@
+/* pages/processtitle/index.wxss */
+.icard{
+    /* margin: 20rpx 0;  */
+    height: auto;
+    border: 1px #dddee1 solid; 
+    border-radius: 10rpx;
+    margin: 30rpx;
+    background: #f8f8f9
+}
+
+.icard .title{
+    padding: 20rpx;
+    font-size: 32rpx;
+}
+.nax{
+    padding-left: 10rpx;
+    margin: 30rpx;
+    border-left: 4px #2b85e4 solid;
+}

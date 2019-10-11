@@ -1,0 +1,156 @@
+/* pages/collection/collection.wxss */
+
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20rpx;
+}
+.head .title {
+  font-weight: bold;
+  font-size: 42rpx;
+  margin-top: 40rpx;
+  margin-left: 60rpx;
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.head .title::before{
+  content: '';
+  height: 100%;
+  width: 10rpx;
+  background-color: #3163d2;
+  position: absolute;
+  top: 0;
+  left: -20rpx;
+}
+.edite{
+  font-size: 32rpx;
+  color: #6385db;
+  position: fixed;
+  right: 0.6rem;
+  top: 0.6rem;
+}
+.ohead{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding-top: 30rpx;
+  color: #6385db;
+}
+.ohead .bell{
+  height: 20rpx;
+  width: 20rpx;
+  margin-right: 15rpx;
+  margin-left: 5%;
+  
+}
+.collection{
+  height: 100%;
+  background-color: #eeeeee;
+}
+
+.collection .head{
+  background-color: #fff;
+}
+.today{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  }
+
+  .today .line{
+    width: 90%;
+    
+}
+
+.today .line .checkBox{
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid #acacac;
+  margin-right: 40rpx;
+}
+.today .line .checkBox.active{
+  border: 1rpx solid #4e4af9;
+  background: #4e4af9;
+}
+
+.today .line{
+  width: calc(100% - 60rpx);
+  margin: auto;
+  padding: 20rpx 30rpx;
+  border-bottom:1rpx solid #eeeeee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.today .line .text{
+  width: 80%;
+}
+.today .line .line-title{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.today .line .sub {
+  font-size: 30rpx;
+  color: #acacac;
+  margin-top: 10rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.today .line .arrow{
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.today .line .arrow image{
+  width: 15rpx;
+  height: 23rpx;
+}
+
+.editor-layer{
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 60rpx);
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  padding: 50rpx 30rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  box-shadow: 0 5rpx 100rpx #495eaa;
+}
+
+.editor-layer .checkBox{
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid #acacac;
+  margin-right: 40rpx;
+}
+
+.editor-layer .checkBox.active{
+  border: 1rpx solid #4e4af9;
+  background: #4e4af9;
+}
+
+.editor-layer .invalid-btn{
+  color: #4e4af9;
+  border: 1rpx solid #4e4af9;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  margin-left: 50rpx;
+  margin-right: 20rpx;
+}
+.editor-layer .del-btn{
+  color: #fff;
+  background: #4e4af9;
+  border: 1rpx solid #4e4af9;
+  padding: 10rpx 80rpx;
+  border-radius: 20rpx;
+  margin-left: 50rpx;
+}

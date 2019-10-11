@@ -1,0 +1,80 @@
+/* pages/recharge/recharge.wxss */
+.rechange{
+  height: 100%;
+}
+
+
+.rechange .bk{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+}
+.rechange .banner{
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.rechange .banner image{
+  width: 100%;
+  height: 480rpx;
+}
+
+.rechange .title {
+  font-weight: bold;
+  font-size: 42rpx;
+  margin-top: 40rpx;
+  margin-left: 60rpx;
+  position: relative;
+  margin-bottom: 30rpx;
+}
+.rechange .title::before{
+  content: '';
+  height: 100%;
+  width: 10rpx;
+  background-color: #3163d2;
+  position: absolute;
+  top: 0;
+  left: -20rpx;
+}
+
+.rechange .section {
+  padding:  0 35rpx;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap; */
+  /* float: left; */
+}
+
+.rechange .section .block{
+  width: 30.333%;
+  text-align: center;
+  padding: 0 10rpx;
+  float: left;
+  
+}
+
+.rechange .section .block .pg.active{
+  color: #fff;
+  background-color: #3163d2;
+}
+
+.rechange .section .block .pg{
+  border: 2rpx solid #3175d2;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  color: #3163d2;
+  margin-bottom: 20rpx;
+}
+.rechange .section .block .price{
+  font-size: 28rpx;
+  white-space: pre;
+  margin-top: 6rpx;
+}
+.money{
+  color:#19be6b
+}
+.energy{
+  color:#2d8cf0
+}

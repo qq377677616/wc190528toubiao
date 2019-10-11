@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+<image src='../../image/bk/loading_1.jpg' class='bk'></image>
+  <view class="userinfo" wx:if="{{!isLoading}}">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击授权 </button>
+  </view>
+  <view wx:if="{{isLoading}}" class='loadind'>
+    <image src='../../image/sprite.png' class='sprite {{active}}'></image>
+    
+    <image src='../../image/loading.png' class='dq'></image>
+  </view>
+  <view class='tag'>公测版</view>
+</view>

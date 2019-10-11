@@ -1,0 +1,79 @@
+/* pages/details/details.wxss */
+.details{
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.head{
+  background-color: #fff;
+  padding: 40rpx;
+}
+.head .title {
+  font-weight: bold;
+  font-size: 42rpx;
+  position: relative;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+.head .title::before{
+  content: '';
+  height: 60rpx;
+  width: 10rpx;
+  background-color: #3163d2;
+  position: absolute;
+  top: 0;
+  left: -35rpx;
+}
+
+.time{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #6385db;
+}
+.time .bell{
+  height: 20rpx;
+  width: 20rpx;
+  margin-right: 15rpx;
+  margin-left: 5%;
+  
+}
+
+.text{
+  padding: 20rpx 40rpx;
+  text-align: left;
+  font-size: 28rpx;
+  line-height: 42rpx;
+}
+
+.footer{
+  display: flex;
+  height: 130rpx;
+  background-color: #fff;
+  position: fixed;
+  padding: 0 40rpx;
+  left: 0;
+  bottom: 0;
+  width: calc(100% - 80rpx);
+  align-items: center;
+  justify-content: space-around;
+}
+
+.footer .download{
+  background-color: #4e4af9;
+  border-radius: 10rpx;
+  color: #fff;
+  padding: 15rpx 60rpx;
+}
+
+.footer .collect{
+  padding: 15rpx 40rpx;
+  border: 1rpx solid #4e4af9;
+  border-radius: 10rpx;
+  color: #4e4af9;
+}
+
+.scroll{
+  height: calc(100% - 130rpx);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

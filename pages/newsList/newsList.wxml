@@ -1,0 +1,34 @@
+<!--pages/newsList/newsList.wxml-->
+<ad unit-id="adunit-935e8d937d846f48"></ad>
+<view class='newsList'>
+
+    <view
+            class='line'
+            wx:for="{{list}}"
+            wx:if="{{type =='message'}}"
+            wx:key="{{item.days}}">
+        <view class='time'>
+            <image src='../../image/message-time.png'></image>
+            <text>{{item.days}}</text>
+        </view>
+        <view class='text'>
+            <view class='obtain'>获取的能量为：<span style="color: #4e4af9;">{{item.get_energy}}</span></view>
+            <view>消耗的能量为：<span style="color: #f94146;">{{item.lost_energy}}</span></view>
+        </view>
+    </view>
+    <view
+            class='line'
+            wx:for="{{list}}"
+            wx:if="{{type =='reword'}}"
+            wx:key="{{item.data}}">
+        <view class='time'>
+            <image src='../../image/message-time.png'></image>
+            <text>{{item.date}}</text>
+        </view>
+        <view class='text'>
+            <view class='obtain'>抽奖类型：{{item.name}}</view>
+            <view>获得的能量为：{{item.get_energy}}</view>
+        </view>
+    </view>
+    <view class='tag'>公测版</view>
+</view>

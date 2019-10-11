@@ -1,0 +1,6 @@
+var rounding =  function(item){
+  return Math.round(item * 100) / 100
+}
+module.exports = {
+  rounding: rounding
+}

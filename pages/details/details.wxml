@@ -1,0 +1,21 @@
+<view class="details">
+  <view class='scroll'>
+    <view class='head'>
+      <view class='title'>
+        {{title}}
+      </view>
+      <view class='time'>
+        <image src='../../image/bell.png' class='bell'></image>
+        <view class='time'>{{time}}</view>
+      </view>
+    </view>
+    <view class='text'>
+      {{content}}
+    </view>
+  </view>
+  <view class='footer'>
+    <view class='download' data-url="{{link}}" bindtap='copyText'>原网页链接</view>
+    <view class='collect' bindtap='collect'>{{collectVal}}</view>
+  </view>
+  <view class='tag'>公测版</view>
+</view>

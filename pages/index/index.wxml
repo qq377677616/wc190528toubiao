@@ -1,0 +1,138 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='home-banner'>
+        <view class='infomation'>
+            <view class='user' wx:if="{{userHead}}">
+                <image src='{{userHead}}'></image>
+            </view>
+            <button class='user' wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">点击登录</button>
+            <view class='text'>
+                <view class='energy'>
+                    <text>能量:</text>
+                    <text class='num'>{{energy}}</text>
+                    <view class='btn-i {{isCheck==="已签到"?"btn-i-stu-s":"btn-i-stu"}}' bindtap='handCheck'>{{isCheck}}</view>
+                    <view class='btn' bindtap='goRecharge'>充值</view>
+                </view>
+                <view class='progress'>
+                    <view class='active' style='width:{{pre}}'></view>
+                </view>
+            </view>
+            <image src="{{grade}}" class='grade' bindtap='checkGrade'></image>
+            <!-- <view class='grade-text' >等级></view> -->
+        </view>
+        <view style="position: absolute;top: 160rpx;left: 30rpx">
+
+        </view>
+        <view class='block'>
+            <view class='line' bindtap='goMessage'>
+                <i-icon size="48" type="interactive"/>
+                <text>消息</text>
+            </view>
+            <view class='line' bindtap='goCollection'>
+                <i-icon size="48" type="task"/>
+                <text>收藏</text>
+            </view>
+            <view class='line' bindtap='goTask1'>
+                <i-icon size="48" type="integral" />
+                <text>获取能量</text>
+            </view>
+            <view class='line' bindtap='goCelebration'>
+                <i-icon size="48" type="label"/>
+                <text>活动</text>
+            </view>
+        </view>
+        <image src='../../image/index-bg.png' class='bk'></image>
+    </view>
+    <view class='content'>
+        <ad unit-id="adunit-935e8d937d846f48"></ad>
+        <view class='title'>
+            招标进程
+        </view>
+
+        <view class="scroll_box">
+            <scroll-view
+                    scroll-x
+                    style="width:100%;"
+                    scroll-into-view="{{toView}}"
+                    scroll-top="{{scrollTop}}"
+            >
+                <!-- ALL-->
+                <view
+                        class="lockx "
+                        data-id="{{99}}"
+                        bindtap="lockDetaile">
+                    <image src="../../image/{{activeId===99?'unlock_a.png':'unlock.png'}}" class='lockedx'></image>
+                    <view class='numx'>
+                        <text>All</text>
+                    </view>
+                </view>
+                <!-- 进程选项-->
+                <view
+                        class="lockx "
+                        wx:for="{{listData}}"
+                        wx:key="{{index}}"
+                        data-id="{{item}}"
+                        bindtap="lockDetaile">
+                    <image src="../../image/{{activeId===item?'unlock_a.png':'unlock.png'}}" class='lockedx'></image>
+                    <view class='numx'>
+                        <text>{{index+1}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+
+        <view class="title">招标列表:</view>
+<!--        <view wx:if="{{processIndex}}">-->
+            <view class="icard animated fadeInUp"
+                  wx:for="{{lineData}}"
+                  wx:key="{{item.id}}"
+                  wx:if="{{activeId===99?true:item.codeid === activeId}}"
+                  bindtap="get_articleDetile"
+                  data-id="{{item.id}}">
+                <view class="card-title">
+                    {{index+1}}、{{item.title}}
+                </view>
+            </view>
+<!--        </view>-->
+        <view style="margin-bottom:90rpx;"></view>
+        <view wx:if="{{isTost}}" style="text-align: center;color: #a1a7a8;font-size: 50rpx">能量不足</view>
+    </view>
+    <view class='sprite' bindtap='goTask'>
+        <image src='../../image/arrow-center.png'></image>
+    </view>
+    <view class='layer' wx:if="{{isLayer}}">
+        <image src='../../image/grade-layer.png' class='grade-intro animated pulse'></image>
+        <image src='../../image/grade-layer-close.png' class='close' bindtap='closeLayer'></image>
+    </view>
+
+    <view class='tag'>公测版</view>
+    <!-- <view class="usermotto">
+      <text class="user-motto" bindtap='pay'>测试支付</text>
+    </view> -->
+</view>
+<!--visible4-->
+<!--<i-modal loading="true" title="提示" visible="{{ visible4 }}" actions="{{ actions4 }}" action-mode="{{ vertical }}"-->
+<!--         bind:click="handleClick">-->
+<!--    <text style="padding: 20rpx;display: block">亲爱的用户，你的能量不足，请及时获取能量。</text>-->
+<!--    <text style="padding: 20rpx;display: block">获取能量的途径：\n 1、每日签到；\n2、充值（1元兑换50点能量）；\n3、观看广告（完整观看1个广告可领取10点能量）。</text>-->
+<!--</i-modal>-->
+
+<i-modal  loading="true" title="提示" visible="{{ false }}" actions="{{ actions3 }}" action-mode="horizontal"
+         bind:click="_handleClick">
+    <text style="padding: 20rpx;display: block">观看广告后检索信息(需观看完整广告)</text>
+</i-modal>
+
+<view hidden="{{z_modal}}" class="z-modal" >
+    <view class="title" >{{prompt.name}}</view>
+    <text class="cantent"> {{prompt.content}}</text>
+    <view class="btn">
+        <view style="border-right:1px #E4E7ED solid;color: #909399" bindtap="handModal" data-index="1">不再提示</view>
+        <view style="color: #409EFF" bindtap="handModal">确认</view>
+    </view>
+</view>
+<view hidden="{{z_modal}}" style="position: fixed;top: 0;bottom: 0;left: 0;right:0;background: rgba(0,0,0,0.5);z-index: 999"></view>
+
+<i-modal  loading="true" title="提示" visible="{{ visible4 }}" actions="{{ actions4 }}" action-mode="horizontal"
+         bind:click="handleClick">
+    <text style="padding:0 20rpx;display: block;height:100%">尊敬的用户，你有{{listDataLenght}}个进程，每天需要消耗{{listDataLenght *10}}点能量维持消耗，请选择以下方式进行能量补充。\n①推广新用户\n②观看广告\n(连续观看可获得双倍奖励,最多3次)\n③充值。</text>
+</i-modal>

@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='home-banner'>
+    <view class='infomation'>
+      <view class='user'>
+        <image src='{{userHead}}'></image>
+      </view>
+      <view class='text'>
+        <view class='energy'>
+          <text>能量:</text>
+          <text class='num'>{{energy}}</text>
+          <view class='btn' bindtap='goRecharge'>充值</view>
+        </view>
+        <view class='progress'>
+          <view class='active' style='width:{{pre}}'></view>
+        </view>
+      </view>
+      <image src='{{grade}}' class='grade' bindtap='checkGrade'></image>
+
+    </view>
+    <image src='../../image/list-bk.png' class='bk'></image>
+  </view>
+  <ad unit-id="adunit-935e8d937d846f48"></ad>
+  <view class='list-content'>
+    <view class='title'>进程管理 </view>
+    <view class='task-line'>
+      <view class='block' bindtap='set1'  wx:for="{{areaData}}"
+            wx:key="{{item.process}}"
+            data-list="{{item.process}}"
+            data-status="{{item.process>35?item.note:item.process}}"
+            data-note="{{item.note<35?item.process:item.note}}"
+            data-index="{{index+1}}">
+        <image src='../../image/unlock1.png' class='unlock'></image>
+        <view class='num'>
+          <text style="font-size:56rpx;text-shadow:6rpx 6rpx 10rpx #000;font-weight: bold;">{{index+1}}</text>
+          <!-- <image class="kda" src="../../image/{{index+1}}.png"></image> -->
+          <!-- <view wx:if="{{item[0].codeid}}">点击修改</view> -->
+          <!-- <view wx:if="{{!item[0].codeid}}">点击设定</view> -->
+        </view>
+      </view>
+      <view class='block' bindtap='add' >
+        <image src='../../image/locked.png' class='locked'></image>
+      </view>
+    </view>
+  </view>
+  <view class='edit-btn'>
+
+     <picker bindchange="bindPickerChange" value="{{array}}" range="{{array}}">
+    <view class="picker">
+          <view class='set' bindtap=''>添加城市</view>
+    </view>
+  </picker>
+    <!-- <view class='modify' bindtap='modify'>{{modifyVal}}</view> -->
+    <view class='modify' bindtap='goTaskDetails'>进程详情</view>
+  </view>
+  <view class='list-layer' wx:if="{{isLayer}}"> 
+    <image src='../../image/list-layer.png' class='bk'></image>
+    <image src='../../image/grade-layer-close.png' class='close' bindtap='closeLayer'></image>
+    <!-- <image src='../../image/list-share.png' ></image> -->
+    <button open-type="share" class='share'>分享好友</button>
+    <image src='../../image/list-task.png' class='task' bindtap='goTask'></image>
+  </view>
+   <view class='layer' wx:if="{{isLayer1}}">
+    <image src='../../image/grade-layer.png' class='grade-intro'></image>
+    <image src='../../image/grade-layer-close.png' class='close' bindtap='closeLayer1'></image>
+  </view>
+  <view class='new-layer' wx:if="{{isStep}}">
+    <view class='step1' wx:if="{{step == 1}}">点击这里可以看到当前进程的详情
+      <view class='next' bindtap='next' data-index="1">下一步</view>
+    </view>
+    <!-- <view class='step2' wx:if="{{step == 2}}">点击这里可以设定进程
+      <view class='next' bindtap='next' data-index="2">下一步</view>
+    </view>
+    <view class='step3' wx:if="{{step == 3}}">点击这里可以修改进程
+      <view class='next' bindtap='next' data-index="3">下一步</view>
+    </view> -->
+    <view class='step4' wx:if="{{step == 2}}">点击这里可以添加进程，首次添加免费哦,添加后的进程可以设定/修改
+      <view class='next' bindtap='next' data-index="4">完成</view>
+    </view>
+  </view>
+  <view class='tag'>公测版</view>
+</view>
+
+ 

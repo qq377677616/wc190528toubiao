@@ -1,0 +1,163 @@
+/* pages/lottery/lottery.wxss */
+.lottery{
+  height: 100%;
+  background-image: url('http://flynew.oss-cn-hangzhou.aliyuncs.com/game/wechat/lt/toubiao/lottery-bk.png');
+  background-size: 100% 100%;
+}
+
+.lottery .my{
+  color: #fff;
+  text-align: right;
+  padding-top: 30rpx;
+  padding-right: 30rpx;
+}
+
+/* 转盘 */
+.canvas-container ul,
+.canvas-container li{
+  margin: 0 ;
+  padding: 0;
+  list-style: none;
+}
+.round{
+  height: 110%;
+  width: 110%;
+  position: absolute;
+  left: -5%;
+  top: -5%;
+}
+.canvas-container{
+  margin: 0 auto;
+  margin-top: 80rpx;
+  position: relative;
+  width: 300px;
+  height: 300px;  
+  border-radius: 50%;
+  background-size: 110% 110%;
+  /*border: 2px solid #E44025;*/
+  box-shadow: 0 2px 3px #333,
+              0 0 2px #000;
+}
+.canvas-content{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: block;
+  width: 300px;
+  height: 300px;
+  border-radius: inherit;
+  background-clip: padding-box;
+  background-color: #fff;
+}
+.canvas-element{
+  position: relative;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+.canvas-list{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 9999;
+}
+.canvas-item{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #6279ed;
+  font-size: 26rpx;
+  /* font-weight: bold; */
+  text-shadow: 0 1px 1px rgba(255,255,255,.6);
+}
+/* .canvas-list .canvas-item:nth-child(odd){
+  background-color: red
+}
+.canvas-list .canvas-item:nth-child(even){
+  background-color: blue
+} */
+.canvas-item-text{
+  position: relative;
+  display: block;
+  padding-top: 20px;
+  /* background-color: red; */
+  /* width: 50px; */
+  margin: 0 auto;
+  text-align: center; 
+  -webkit-transform-origin: 50% 150px; 
+  transform-origin: 50% 150px;
+}
+
+/* 分隔线 */
+.canvas-line{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 99;
+}
+.canvas-litem{
+  position: absolute;
+   left: 150px;
+   top: 0;
+   width: 1px;
+   height: 150px;
+   background-color: #6279ed;
+   overflow: hidden; 
+   -webkit-transform-origin: 50% 150px; 
+   transform-origin: 50% 150px;
+}
+
+
+.canvas-btn{
+  position: absolute;
+  left: 75px;
+  top: 110px;
+  z-index: 400;
+  width: 159px;
+  height: 100px;
+  background-image: url('http://flynew.oss-cn-hangzhou.aliyuncs.com/game/wechat/lt/toubiao/arrow-center.png');
+  background-size: 100% 100%;
+}
+.canvas-btn.disabled{
+    pointer-events: none;
+    background: #B07A7B;
+    color: #ccc;
+}
+.canvas-btn.disabled::after{
+  border-bottom-color: #B07A7B;
+}
+
+
+.gb-run{ 
+    -webkit-transition: all 6s ease;
+    transition: all 6s ease;
+}
+
+.opportunity{
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 100rpx;
+  /* margin-left: 5%; */
+}
+
+.btn{
+  width: 280rpx;
+  height: 70rpx;
+  font-size: 40rpx;
+  background-image: url('http://flynew.oss-cn-hangzhou.aliyuncs.com/game/wechat/lt/toubiao/task1-btn.png');
+  background-size: 100% 100%;
+  color: #fff;
+  padding: 20rpx;
+  text-align: center;
+  margin-left: calc(50% - 160rpx);
+  margin-top: 60rpx;
+}
